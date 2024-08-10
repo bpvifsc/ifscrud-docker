@@ -42,3 +42,10 @@ docker-compose down
 docker-compose up
 ```
 CTRL+C para terminar a execução
+
+## Linus
+
+No Linux o docker compose é um parâmetro do aplicativo docker, ficando as linhas de comando no formato:
+```
+docker compose up
+```
