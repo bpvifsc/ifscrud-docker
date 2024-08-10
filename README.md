@@ -9,11 +9,13 @@ O PHPMyAdmin para gestão do banco de dados pode acessado em:
 http://localhost:8081/
 * Usuário: ifsc
 * Senha: ifsc
+
 ou como administrador
+
 * Usuário: root
 * Senha: root_password
 
-O servidor Mysql fica acessivel em localhost:3310
+O servidor Mysql fica acessivel diretamente em localhost:3310
 
 ## Clonar o repositório
 ```
