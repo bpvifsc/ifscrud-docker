@@ -1,0 +1,56 @@
+services:
+
+  # MySQL service
+  mysql:
+    image: mysql
+    networks:
+      - ifscrud-network
+    container_name: mysql-container
+    ports:
+      - "3310:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: IFSCrud
+      MYSQL_USER: ifsc
+      MYSQL_PASSWORD: ifsc
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d/:ro
+
+  # Apache and PHP service
+  web:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    container_name: php-apache-container
+    networks:
+      - ifscrud-network
+    ports:
+      - "8000:80"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_DATABASE: IFSCrud
+      MYSQL_USER: ifsc
+      MYSQL_PASSWORD: ifsc
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - mysql
+  
+  # phpMyAdmin service
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    networks:
+      - ifscrud-network
+    container_name: phpmyadmin-container
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root_password
+    depends_on:
+      - mysql
+
+# Define networks
+networks:
+  ifscrud-network:
