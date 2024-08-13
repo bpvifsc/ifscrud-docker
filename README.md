@@ -3,7 +3,7 @@
 Aplicação modelo para desenvolvimento AMP(Apache, MySQL, PHP)
 
 Depois da execução do container a aplicação fica disponível em:
-http://localhost:8000/
+http://localhost:8001/
 
 O PHPMyAdmin para gestão do banco de dados pode acessado em:
 http://localhost:8081/

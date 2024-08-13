@@ -26,7 +26,7 @@ services:
     networks:
       - ifscrud-network
     ports:
-      - "8000:80"
+      - "8001:80"
     environment:
       MYSQL_HOST: mysql
       MYSQL_DATABASE: IFSCrud
